@@ -1,18 +1,26 @@
-# Dr1s Tap
+# dr1s Tap
 
-## How do I install these formulae?
+## Installation
 
-`brew install dr1s/tap/<formula>`
+1. Add the tap:
+   ```bash
+   brew tap dr1s/tap
+   ```
 
-Or `brew tap dr1s/tap` and then `brew install <formula>`.
+2. Trust the tap:
+   ```bash
+   brew trust dr1s/tap
+   ```
 
-Or, in a `brew bundle` `Brewfile`:
+3. Install a cask:
+   ```bash
+   brew install dr1s/tap/<cask>
+   ```
 
-```ruby
-tap "dr1s/tap"
-brew "<formula>"
-```
+## Casks
 
-## Documentation
+### Alacritty
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+A GPU-accelerated terminal emulator.
+
+After installation, the cask automatically removes Apple’s Quarantine extended attribute from `Alacritty.app` and re-codesigns the app with an ad-hoc signature so it launches without Gatekeeper warnings.
