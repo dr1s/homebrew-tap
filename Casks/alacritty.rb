@@ -12,7 +12,7 @@ cask "alacritty" do
     strategy :github_latest
   end
 
-  depends_on macos: :big_sur
+  depends_on :macos
 
   app "Alacritty.app"
   binary "#{appdir}/Alacritty.app/Contents/MacOS/alacritty"
@@ -30,10 +30,20 @@ cask "alacritty" do
 
   postflight_steps do
     run "/usr/bin/xattr",
-        args: ["-drs", "com.apple.quarantine", "{{appdir}}/Alacritty.app"],
+        args:         [
+          "-drs",
+          "com.apple.quarantine",
+          "{{appdir}}/Alacritty.app",
+        ],
         must_succeed: false
     run "/usr/bin/codesign",
-        args: ["--force", "--deep", "-s", "-", "{{appdir}}/Alacritty.app"],
+        args:         [
+          "--force",
+          "--deep",
+          "-s",
+          "-",
+          "{{appdir}}/Alacritty.app",
+        ],
         must_succeed: false
   end
 
